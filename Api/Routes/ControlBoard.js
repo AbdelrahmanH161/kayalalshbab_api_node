@@ -7,20 +7,20 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const { S3Client } = require('@aws-sdk/client-s3');
 ////////////////////////////////////////////////////
-const s3Config = new AWS.S3({
-  accessKeyId:"ASIA4SYBEQF4CMB2XJBV",
-  secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
-  Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
-});
+// const s3Config = new AWS.S3({
+//   accessKeyId:"ASIA4SYBEQF4CMB2XJBV",
+//   secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
+//   Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
+// });
 AWS.config.update({
-  accessKeyId: "ASIA4SYBEQF4CMB2XJBV",
-  secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4"
+  accessKeyId: "ASIA4SYBEQF4PINZUNUH",
+  secretAccessKey: "rEnPiu91hnSYSiehoI4mI5HNV3FuFvwqcEf8KOo9"
 });
 s3 = new S3Client({
   region: 'eu-central-1',
   credentials: {
-    accessKeyId: "ASIA4SYBEQF4CMB2XJBV",
-    secretAccessKey:"fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
+  accessKeyId: "ASIA4SYBEQF4PINZUNUH",
+  secretAccessKey: "rEnPiu91hnSYSiehoI4mI5HNV3FuFvwqcEf8KOo9"
   },
   sslEnabled: false,
   s3ForcePathStyle: true,
