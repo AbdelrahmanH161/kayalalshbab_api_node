@@ -3,6 +3,26 @@ const router = express.Router()
 const multer = require("multer")
 const Item = require("../Models/Item")
 const Category = require("../Models/Category")
+const AWS = require('aws-sdk');
+const multerS3 = require('multer-s3');
+////////////////////////////////////////////////////
+const s3Config = new AWS.S3({
+  accessKeyId:"ASIA4SYBEQF4CMB2XJBV",
+  secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
+  Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
+});
+
+const multerS3Config = multerS3({
+  s3: s3Config,
+  bucket:"cyclic-victorious-pink-turtleneck-shirt-eu-central-1",
+  metadata: function (req, file, cb) {
+      cb(null, { fieldName: file.fieldname });
+  },
+  key: function (req, file, cb) {
+      console.log(file)
+      cb(null, file.fieldname + "-" + Date.now() + file.originalname)
+  }
+});
 ////////////////////multer to uplode image////////////////////////
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -13,7 +33,7 @@ const storage = multer.diskStorage({
   },
 })
 const multi_upload = multer({
-  storage: storage,
+  storage: multerS3Config,
 })
 ///////////////// create Cateory /////////////////////
 router.post("/createCategory",multi_upload.single("image"),
