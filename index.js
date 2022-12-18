@@ -10,7 +10,7 @@ const mongo = require("./Config/mongose");
 app.use(cors());
 app.use(express.urlencoded());
 app.use(express.json());
-app.use('/image',express.static('./image'));
+app.use('/image',express.static('./'));
 //////////////////////////////////////////////
 app.use('/admin',adminRoute);
 app.use('/menu',menuRoute);

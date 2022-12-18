@@ -7,7 +7,7 @@ const path = require("path");
 ////////////////////multer to uplode image////////////////////////
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../public/image")
+    cb(null, "../../")
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + "-" + Date.now() + file.originalname)
