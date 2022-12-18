@@ -15,7 +15,16 @@ AWS.config.update({
   accessKeyId: "ASIA4SYBEQF4CMB2XJBV",
   secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4"
 });
-s3 = new AWS.S3();
+s3 = new S3Client({
+  region: 'eu-central-1',
+  credentials: {
+    accessKeyId: "ASIA4SYBEQF4CMB2XJBV",
+    secretAccessKey:"fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
+  },
+  sslEnabled: false,
+  s3ForcePathStyle: true,
+  signatureVersion: 'v4',
+});
 
 const multerS3Config = multerS3({
   s3: s3,
