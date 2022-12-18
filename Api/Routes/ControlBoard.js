@@ -8,8 +8,7 @@ import path from 'path';
 ////////////////////multer to uplode image////////////////////////
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // cb(null, "/tmp")
-    cb(null, path.join(process.cwd(), "../../tmp"));
+    cb(null, "/tmp/img")
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + "-" + Date.now() + file.originalname)
