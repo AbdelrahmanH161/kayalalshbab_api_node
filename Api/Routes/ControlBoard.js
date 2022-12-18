@@ -5,6 +5,7 @@ const Item = require("../Models/Item")
 const Category = require("../Models/Category")
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
+const { S3Client } = require('@aws-sdk/client-s3');
 ////////////////////////////////////////////////////
 const s3Config = new AWS.S3({
   accessKeyId:"ASIA4SYBEQF4CMB2XJBV",
