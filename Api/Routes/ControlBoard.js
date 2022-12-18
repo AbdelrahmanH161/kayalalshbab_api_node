@@ -11,10 +11,17 @@ const s3Config = new AWS.S3({
   secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
   Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
 });
+AWS.config.update({
+  accessKeyId: "ASIA4SYBEQF4CMB2XJBV",
+  secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4"
+});
+s3 = new AWS.S3();
 
 const multerS3Config = multerS3({
-  s3: s3Config,
+  s3: s3,
   bucket:"cyclic-victorious-pink-turtleneck-shirt-eu-central-1",
+  acl: 'public-read',
+  contentType: multerS3.AUTO_CONTENT_TYPE,
   metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });
   },
