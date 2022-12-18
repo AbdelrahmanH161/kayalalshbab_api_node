@@ -3,12 +3,10 @@ const router = express.Router()
 const multer = require("multer")
 const Item = require("../Models/Item")
 const Category = require("../Models/Category")
-import { readFileSync } from 'fs';
-import path from 'path';
 ////////////////////multer to uplode image////////////////////////
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/tmp")
+    cb(null, "image")
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + "-" + Date.now() + file.originalname)
