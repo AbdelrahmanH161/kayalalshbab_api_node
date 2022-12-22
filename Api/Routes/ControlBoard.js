@@ -13,14 +13,14 @@ const { S3Client } = require('@aws-sdk/client-s3');
 //   Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
 // });
 AWS.config.update({
-  accessKeyId: "ASIA4SYBEQF4PINZUNUH",
-  secretAccessKey: "rEnPiu91hnSYSiehoI4mI5HNV3FuFvwqcEf8KOo9"
+  accessKeyId: "AKIA4FQ76EAFKNDZJ344",
+  secretAccessKey: "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"
 });
 s3 = new S3Client({
-  region: 'eu-central-1',
+  region: 'ca-central-1',
   credentials: {
-  accessKeyId: "ASIA4SYBEQF4PINZUNUH",
-  secretAccessKey: "rEnPiu91hnSYSiehoI4mI5HNV3FuFvwqcEf8KOo9"
+  accessKeyId: "AKIA4FQ76EAFKNDZJ344",
+  secretAccessKey: "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"
   },
   sslEnabled: false,
   s3ForcePathStyle: true,
@@ -29,7 +29,6 @@ s3 = new S3Client({
 
 const multerS3Config = multerS3({
   s3: s3,
-  bucket:"cyclic-victorious-pink-turtleneck-shirt-eu-central-1",
   acl: 'public-read',
   contentType: multerS3.AUTO_CONTENT_TYPE,
   metadata: function (req, file, cb) {
