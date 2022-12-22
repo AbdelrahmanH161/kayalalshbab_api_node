@@ -36,7 +36,7 @@ const multerS3Config = multerS3({
       cb(null, { fieldName: file.fieldname });
   },
   key: function (req, file, cb) {
-      console.log(file)
+      // console.log(file)
       cb(null, file.fieldname + "-" + Date.now() + file.originalname)
   }
 });
@@ -56,7 +56,8 @@ const multi_upload = multer({
 router.post("/createCategory",multi_upload.single("image"),
   async (req, res) => {
     try {
-      let image = req.file.path
+      // console.log(req.file);
+      let image = req.file.location
       req.body.image = image
       // console.log(req.body);
       await Category.create(req.body, function (err, data) {
