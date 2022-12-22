@@ -57,7 +57,7 @@ router.post("/createCategory",multi_upload.single("image"),
   async (req, res) => {
     try {
       // console.log(req.file);
-      let image = req.file.location
+      let image = req.file.path
       req.body.image = image
       // console.log(req.body);
       await Category.create(req.body, function (err, data) {
