@@ -13,14 +13,14 @@ const { S3Client } = require('@aws-sdk/client-s3');
 //   Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
 // });
 AWS.config.update({
-  accessKeyId: "AKIA4FQ76EAFKNDZJ344",
-  secretAccessKey: "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"
+  accessKeyId: "AKIA4FQ76EAFINV43CJA",
+  secretAccessKey: "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"
 });
 s3 = new S3Client({
   region: 'ca-central-1',
   credentials: {
-  accessKeyId: "AKIA4FQ76EAFKNDZJ344",
-  secretAccessKey: "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"
+  accessKeyId: "AKIA4FQ76EAFINV43CJA",
+  secretAccessKey: "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"
   },
   sslEnabled: false,
   s3ForcePathStyle: true,
