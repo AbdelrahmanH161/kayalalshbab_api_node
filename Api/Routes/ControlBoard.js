@@ -3,43 +3,43 @@ const router = express.Router()
 const multer = require("multer")
 const Item = require("../Models/Item")
 const Category = require("../Models/Category")
-const AWS = require('aws-sdk');
-const multerS3 = require('multer-s3');
-const { S3Client } = require('@aws-sdk/client-s3');
+// const AWS = require('aws-sdk');
+// const multerS3 = require('multer-s3');
+// const { S3Client } = require('@aws-sdk/client-s3');
 ////////////////////////////////////////////////////
 // const s3Config = new AWS.S3({
 //   accessKeyId:"ASIA4SYBEQF4CMB2XJBV",
 //   secretAccessKey: "fFDiHTm1MmOQYqHPK1Jj2UUCw+RlPcSsdulhmWg4",
 //   Bucket: "cyclic-victorious-pink-turtleneck-shirt-eu-central-1"
 // });
-AWS.config.update({
-  accessKeyId: "AKIA4FQ76EAFINV43CJA",
-  secretAccessKey: "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"
-});
-s3 = new S3Client({
-  region: 'ca-central-1',
-  credentials: {
-  accessKeyId: "AKIA4FQ76EAFINV43CJA",
-  secretAccessKey: "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"
-  },
-  sslEnabled: false,
-  s3ForcePathStyle: true,
-  signatureVersion: 'v4',
-});
+// AWS.config.update({
+//   accessKeyId: "AKIA4FQ76EAFINV43CJA",
+//   secretAccessKey: "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"
+// });
+// s3 = new S3Client({
+//   region: 'ca-central-1',
+//   credentials: {
+//   accessKeyId: "AKIA4FQ76EAFINV43CJA",
+//   secretAccessKey: "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"
+//   },
+//   sslEnabled: false,
+//   s3ForcePathStyle: true,
+//   signatureVersion: 'v4',
+// });
 
-const multerS3Config = multerS3({
-  s3: s3,
-  bucket:"kayalalshbabapi",
-  acl: 'public-read',
-  contentType: multerS3.AUTO_CONTENT_TYPE,
-  metadata: function (req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
-  },
-  key: function (req, file, cb) {
-      // console.log(file)
-      cb(null, file.fieldname + "-" + Date.now() + file.originalname)
-  }
-});
+// const multerS3Config = multerS3({
+//   s3: s3,
+//   bucket:"kayalalshbabapi",
+//   acl: 'public-read',
+//   contentType: multerS3.AUTO_CONTENT_TYPE,
+//   metadata: function (req, file, cb) {
+//       cb(null, { fieldName: file.fieldname });
+//   },
+//   key: function (req, file, cb) {
+//       // console.log(file)
+//       cb(null, file.fieldname + "-" + Date.now() + file.originalname)
+//   }
+// });
 ////////////////////multer to uplode image////////////////////////
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -50,7 +50,7 @@ const storage = multer.diskStorage({
   },
 })
 const multi_upload = multer({
-  storage: multerS3Config,
+  storage: storage,
 })
 ///////////////// create Cateory /////////////////////
 router.post("/createCategory",multi_upload.single("image"),
