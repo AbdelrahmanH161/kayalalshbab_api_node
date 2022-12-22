@@ -29,6 +29,7 @@ s3 = new S3Client({
 
 const multerS3Config = multerS3({
   s3: s3,
+  bucket:"kayalalshbabapi",
   acl: 'public-read',
   contentType: multerS3.AUTO_CONTENT_TYPE,
   metadata: function (req, file, cb) {
